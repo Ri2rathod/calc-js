@@ -4,16 +4,35 @@ var inputer=document.getElementById('inputer');
 
 var history_opetation=document.getElementById('history_opetation');
 
-var flag=1;
-function btn_operation(btn)
+var flag=1,count=0;
+
+
+for (let index = 0; index < btn_class.length; index++) {
+    btn_class[index].addEventListener("click",function(){
+
+        if(btn_class[index].textContent.match(/^[0-9.]+$/))
+        {   
+            btn_number(btn_class[index]);
+        }
+        else if (btn_class[index].textContent.match(/[$-/.:-?{-~!"^_`\[\]]/))
+        {
+            btn_operation(btn_class[index].textContent);
+        }
+        else if(btn_class[index].textContent=="BackSpace")
+        {
+            backspace();
+        }
+        else if(btn_class[index].textContent=="Clear All")
+        {
+            reset_all();
+        }
+    });
+    
+}
+
+function backspace()
 {
-    if(btn =="[object HTMLButtonElement]")
-    {
-        btn=btn.textContent;
-    }
-    switch (btn) {
-        case "Backspace":
-            if(inputer.value=="")
+    if(inputer.value=="")
             {
                 inputer.value=display.textContent;
                 display.textContent="";
@@ -21,7 +40,15 @@ function btn_operation(btn)
             else{
                 inputer.value=inputer.value.slice(0,-1)
             }
-            break;
+}
+
+function btn_operation(btn)
+{
+    if(btn =="[object HTMLButtonElement]")
+    {
+        btn=btn.textContent;
+    }
+    switch (btn) {
         case "+/-":
             if(flag)
             {
@@ -53,19 +80,34 @@ function btn_operation(btn)
             opetation(btn);
             btn_operation_eval();
             break;
-        default:
-
-            break;
+        case "=":
+            btn_operation_eval();
+        break;
     }
 }
+var counter=0;
 function btn_number(btn)
 {
+    var patt = /^-?\d+(?:\.\d+)?$/;
+    
+    if(inputer.value == "0")
+    {
+        inputer.value="";
+        return true;
+    }
+  
     if(btn !="[object HTMLButtonElement]")
     {
         inputer.value+=btn;
     }
     else{
         inputer.value+=btn.textContent;
+    }
+    var dot=inputer.value.split('.').length-1;
+    console.log(dot);
+    if(dot>1)
+    {
+        inputer.value=inputer.value.slice(0,inputer.value.length - 1)
     }
 }
 function reset_all()
@@ -80,11 +122,6 @@ function reset_all()
     }
 }
 function btn_operation_eval(){
-
-    if(inputer.value == "0")
-    {
-        return false;
-    }
 
     if (typeof btn !== 'undefined') {
         var equation= display.textContent+inputer.value;
@@ -102,13 +139,17 @@ function btn_operation_eval(){
         equation+="="+inputer.value;
 
         history_opetation.innerHTML+="<p> "+ equation +"</p>";
-
         display.textContent="";
     }
 }
 
 function opetation(operator)
 {
+    if(inputer.value=="")
+    {
+        display.textContent="0";
+        return true;
+    } 
     var display_text=display.textContent.slice(-1);
         if((display_text == '%' || display_text == '/' || display_text == '*' || display_text == '+' || display_text == '-'))
         {
@@ -121,15 +162,25 @@ function opetation(operator)
         }
 }
 
+
+
 function key_event(e)
 {
-    if(e.key>=0 && e.key<=9)
+    if((e.key>=0 && e.key<=9) ||e.key==".")
     {
         btn_number(e.key);
     }
     else if(e.key== "Enter")
     {
         btn_operation_eval();
+    }
+    else if(e.key== "Backspace")
+    {
+        backspace();
+    }
+    else if(e.key== "Escape")
+    {
+        reset_all();
     }
     else
     {

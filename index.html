@@ -14,86 +14,86 @@
             <div>
                 <h2 class="text-center">Calculator</h2>
                 <div class="form-group ">
-                    <span class="form-control text-right border-dark" id="display">0</span>
+                    <span class="form-control text-right border-dark" id="display"></span>
                 </div>
                 <div class="form-group">
-                    <input type="text" class="form-control text-right border-dark" name="" value="0" placeholder="0" id="inputer">
+                    <input type="text" class="form-control text-right border-dark" name=""  disabled placeholder="0" id="inputer">
                 </div>
             </div>
             <div class="row">
                 <div class="col-9">
-                    <button class="btn btn-block btn-primary btn-lg mb-3" onclick="reset_all()">Clear All</button>
+                    <button class="btn btn-block btn-primary btn-lg mb-3">Clear All</button>
                     <div class="row">
                         <div class="col-3 mb-3">
-                            <button class="btn btn-block btn-info" onclick="btn_operation(this)" >BackSpace</button>
+                            <button class="btn btn-block btn-info">BackSpace</button>
                         </div>
                         <div class="col-3 mb-3">
-                            <button class="btn btn-block btn-info" onclick="btn_operation(this)" >+/-</button>
+                            <button class="btn btn-block btn-info"  >+/-</button>
                         </div>
                         <div class="col-3 mb-3">
-                            <button class="btn btn-block btn-info" onclick="btn_operation(this)">%</button>
+                            <button class="btn btn-block btn-info" >%</button>
                         </div>
                         <div class="col-3 mb-3">
-                            <button class="btn btn-block btn-info" onclick="btn_operation(this)">/</button>
+                            <button class="btn btn-block btn-info" >/</button>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-3 mb-3">
-                            <button class="btn btn-block btn-info" onclick="btn_number(this)">7</button>
+                            <button class="btn btn-block btn-info" >7</button>
                         </div>
                         <div class="col-3 mb-3">
-                            <button class="btn btn-block btn-info" onclick="btn_number(this)">8</button>
+                            <button class="btn btn-block btn-info" >8</button>
                         </div>
                         <div class="col-3 mb-3">
-                            <button class="btn btn-block btn-info" onclick="btn_number(this)">9</button>
+                            <button class="btn btn-block btn-info" >9</button>
                         </div>
                         <div class="col-3 mb-3">
-                            <button class="btn btn-block btn-info" onclick="btn_operation(this)">*</button>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-3 mb-3">
-                            <button class="btn btn-block btn-info" onclick="btn_number(this)">4</button>
-                        </div>
-                        <div class="col-3 mb-3">
-                            <button class="btn btn-block btn-info" onclick="btn_number(this)">5</button>
-                        </div>
-                        <div class="col-3 mb-3">
-                            <button class="btn btn-block btn-info" onclick="btn_number(this)">4</button>
-                        </div>
-                        <div class="col-3 mb-3">
-                            <button class="btn btn-block btn-info" onclick="btn_operation(this)">-</button>
+                            <button class="btn btn-block btn-info" >*</button>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-3 mb-3">
-                            <button class="btn btn-block btn-info" onclick="btn_number(this)" onkeydown="key_event(event)" >1</button>
+                            <button class="btn btn-block btn-info" >4</button>
                         </div>
                         <div class="col-3 mb-3">
-                            <button class="btn btn-block btn-info" onclick="btn_number(this)"  >2</button>
+                            <button class="btn btn-block btn-info" >5</button>
                         </div>
                         <div class="col-3 mb-3">
-                            <button class="btn btn-block btn-info" onclick="btn_number(this)">3</button>
+                            <button class="btn btn-block btn-info" >4</button>
                         </div>
                         <div class="col-3 mb-3">
-                            <button class="btn btn-block btn-info" onclick="btn_operation(this)">+</button>
+                            <button class="btn btn-block btn-info" >-</button>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-3 mb-3">
+                            <button class="btn btn-block btn-info"  >1</button>
+                        </div>
+                        <div class="col-3 mb-3">
+                            <button class="btn btn-block btn-info"   >2</button>
+                        </div>
+                        <div class="col-3 mb-3">
+                            <button class="btn btn-block btn-info" >3</button>
+                        </div>
+                        <div class="col-3 mb-3">
+                            <button class="btn btn-block btn-info" >+</button>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-6 mb-3">
-                            <button class="btn btn-block btn-info" onclick="btn_number(this)">0</button>
+                            <button class="btn btn-block btn-info" >0</button>
                         </div>
                         <div class="col-3 mb-3">
-                            <button class="btn btn-block btn-info" onclick="btn_number(this)">.</button>
+                            <button class="btn btn-block btn-info" >.</button>
                         </div>
                         <div class="col-3 mb-3">
-                            <button class="btn btn-block btn-info" onclick="btn_operation_eval(this)">=</button>
+                            <button class="btn btn-block btn-info">=</button>
                         </div>
                     </div>
                 </div>
                 <div class="col-3">
                     <h2>History</h2>
-                    <div class="h-75 border " id="history_opetation">
+                    <div class="h-75 border pre-scrollable" id="history_opetation">
 
                     </div>
                 </div>
